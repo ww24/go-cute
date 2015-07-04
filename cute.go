@@ -11,10 +11,6 @@ import (
 	"gopkg.in/qml.v1"
 )
 
-type person struct {
-	Name string
-}
-
 func main() {
 	err := qml.Run(run)
 	fmt.Fprintln(os.Stderr, err)
@@ -29,7 +25,7 @@ func run() (e error) {
 
 	file, err := os.Open("material/line.png")
 	if err != nil {
-		panic(err)
+		return err
 	}
 	defer file.Close()
 
